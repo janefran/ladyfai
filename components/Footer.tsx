@@ -101,9 +101,14 @@ const Footer = forwardRef<HTMLElement, { curtain?: boolean }>(function Footer(
               <a
                 key={s.label}
                 href={s.href}
-                className="inline-flex items-center gap-2 text-soft transition-colors hover:text-[var(--accent)]"
+                className="inline-flex items-center gap-1.5 text-soft transition-colors hover:text-[var(--accent)]"
               >
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" className="text-[var(--accent)]" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  className="h-[1em] w-[1em] shrink-0 text-[var(--accent)]"
+                >
                   {s.icon}
                 </svg>
                 {s.label}
