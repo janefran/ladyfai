@@ -58,20 +58,20 @@ const Footer = forwardRef<HTMLElement, { curtain?: boolean }>(function Footer(
         <p className="text-sm font-bold uppercase tracking-[0.22em] text-accent">
           Your first step is free
         </p>
-        <h2 className="display-md mt-3 max-w-2xl">
+        <h2 className="display-lg mt-4 max-w-2xl">
           Build something still winning a year from now.
         </h2>
-        <p className="mt-3 max-w-md text-soft">
-          No spam, and I am not selling you anything here. Just here to help you
-          succeed. Unsubscribe the moment my emails stop being helpful.
+        <p className="mt-3 max-w-2xl text-soft">
+          No spam, and I am not selling you anything. I am just here to help you
+          succeed, and you can unsubscribe the moment I stop being useful.
         </p>
         <div className="mt-6 flex w-full max-w-md justify-center">
           <KitForm compact />
         </div>
       </div>
 
-      {/* Identity + links */}
-      <div className="container-site relative z-10 grid gap-10 py-10 md:grid-cols-[1.3fr_1fr_1.2fr]">
+      {/* Identity + links: logo left, link groups run horizontally */}
+      <div className="container-site relative z-10 flex flex-col gap-8 py-10 lg:flex-row lg:items-start lg:justify-between">
         <div className="max-w-xs">
           <p className="font-display text-lg font-bold text-[var(--ink-strong)]">
             LadyF<span className="text-accent"> AI</span>
@@ -82,35 +82,37 @@ const Footer = forwardRef<HTMLElement, { curtain?: boolean }>(function Footer(
           </p>
         </div>
 
-        <nav aria-label="Pages" className="flex flex-col gap-3 text-sm">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
-            Explore
-          </p>
-          <Link className="text-soft hover:text-[var(--accent)]" href="/about">About</Link>
-          <Link className="text-soft hover:text-[var(--accent)]" href="/blog">Blog</Link>
-          <Link className="text-soft hover:text-[var(--accent)]" href="/videos">Videos</Link>
-          <Link className="text-soft hover:text-[var(--accent)]" href="/brands">For brands</Link>
-        </nav>
+        <div className="flex flex-col gap-4">
+          <nav aria-label="Pages" className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+            <span className="w-20 text-xs font-bold uppercase tracking-[0.18em] text-accent">
+              Explore
+            </span>
+            <Link className="text-soft hover:text-[var(--accent)]" href="/about">About</Link>
+            <Link className="text-soft hover:text-[var(--accent)]" href="/blog">Blog</Link>
+            <Link className="text-soft hover:text-[var(--accent)]" href="/videos">Videos</Link>
+            <Link className="text-soft hover:text-[var(--accent)]" href="/brands">For brands</Link>
+          </nav>
 
-        <nav aria-label="Find me elsewhere" className="flex flex-col gap-3 text-sm">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
-            Find me elsewhere
-          </p>
-          {socials.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              className="group flex items-center gap-3 text-soft hover:text-[var(--accent)]"
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--line)] text-[var(--accent)] transition-colors group-hover:border-[var(--accent)]">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  {s.icon}
-                </svg>
-              </span>
-              {s.label}
-            </a>
-          ))}
-        </nav>
+          <nav aria-label="Find me elsewhere" className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+            <span className="w-20 text-xs font-bold uppercase tracking-[0.18em] text-accent">
+              Find me
+            </span>
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                className="group flex items-center gap-2 text-soft hover:text-[var(--accent)]"
+              >
+                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--line)] text-[var(--accent)] transition-colors group-hover:border-[var(--accent)]">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    {s.icon}
+                  </svg>
+                </span>
+                {s.label}
+              </a>
+            ))}
+          </nav>
+        </div>
       </div>
 
       <div className="container-site relative z-10 flex flex-col gap-2 border-t border-[var(--line)] py-6 text-xs text-soft sm:flex-row sm:items-center sm:justify-between">
