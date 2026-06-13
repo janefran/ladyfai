@@ -71,7 +71,7 @@ const Footer = forwardRef<HTMLElement, { curtain?: boolean }>(function Footer(
       </div>
 
       {/* Identity + links: logo left, link groups run horizontally */}
-      <div className="container-site relative z-10 flex flex-col gap-8 py-10 lg:flex-row lg:items-start lg:justify-between">
+      <div className="container-site relative z-10 flex flex-col gap-8 py-10 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-xs">
           <p className="font-display text-lg font-bold text-[var(--ink-strong)]">
             LadyF<span className="text-accent"> AI</span>
