@@ -21,7 +21,7 @@ const socials = [
     ),
   },
   {
-    label: "X",
+    label: "X/Twitter",
     href: site.social.twitter,
     icon: (
       <path d="M18.9 2H22l-6.8 7.8L23.3 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1 2h6.4l4.4 5.9L18.9 2Zm-1.1 18h1.7L7.3 3.8H5.5L17.8 20Z" />
@@ -101,13 +101,11 @@ const Footer = forwardRef<HTMLElement, { curtain?: boolean }>(function Footer(
               <a
                 key={s.label}
                 href={s.href}
-                className="group flex items-center gap-2 text-soft hover:text-[var(--accent)]"
+                className="inline-flex items-center gap-2 text-soft transition-colors hover:text-[var(--accent)]"
               >
-                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--line)] text-[var(--accent)] transition-colors group-hover:border-[var(--accent)]">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    {s.icon}
-                  </svg>
-                </span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" className="text-[var(--accent)]" aria-hidden="true">
+                  {s.icon}
+                </svg>
                 {s.label}
               </a>
             ))}
