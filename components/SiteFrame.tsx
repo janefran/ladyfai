@@ -16,18 +16,29 @@ export default function SiteFrame({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1024px)");
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const applyMode = () => setCurtain(mq.matches && !reduced.matches);
-    applyMode();
-    mq.addEventListener("change", applyMode);
-    reduced.addEventListener("change", applyMode);
+
+    // Curtain only when desktop, motion allowed, AND the footer actually fits
+    // the viewport. A fixed footer taller than the screen would clip its own
+    // top, so on short viewports we fall back to a normal scrolling footer.
+    const applyMode = () => {
+      const f = footRef.current;
+      const fits = f ? f.offsetHeight <= window.innerHeight - 8 : true;
+      setCurtain(mq.matches && !reduced.matches && fits);
+    };
 
     const setHeight = () => {
       const f = footRef.current;
       if (f) {
         document.documentElement.style.setProperty("--footer-h", `${f.offsetHeight}px`);
       }
+      applyMode();
     };
     setHeight();
+    // Re-evaluate after layout/paint settles, so the curtain engages on first
+    // load (the footer's final height is not known on the first synchronous pass).
+    requestAnimationFrame(() => requestAnimationFrame(setHeight));
+    mq.addEventListener("change", applyMode);
+    reduced.addEventListener("change", applyMode);
     const ro = new ResizeObserver(setHeight);
     if (footRef.current) ro.observe(footRef.current);
     window.addEventListener("resize", setHeight);

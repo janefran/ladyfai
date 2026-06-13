@@ -54,24 +54,24 @@ const Footer = forwardRef<HTMLElement, { curtain?: boolean }>(function Footer(
       />
 
       {/* Closing CTA: one action, calm hierarchy */}
-      <div className="container-site relative z-10 flex flex-col items-center border-b border-[var(--line)] py-20 text-center">
+      <div className="container-site relative z-10 flex flex-col items-center border-b border-[var(--line)] py-12 text-center">
         <p className="text-sm font-bold uppercase tracking-[0.22em] text-accent">
           Your first step is free
         </p>
-        <h2 className="display-lg mt-4 max-w-2xl">
+        <h2 className="display-md mt-3 max-w-2xl">
           Build something still winning a year from now.
         </h2>
-        <p className="mt-4 max-w-md text-soft">
+        <p className="mt-3 max-w-md text-soft">
           No spam, and I am not selling you anything here. Just here to help you
           succeed. Unsubscribe the moment my emails stop being helpful.
         </p>
-        <div className="mt-8 flex w-full max-w-md justify-center">
+        <div className="mt-6 flex w-full max-w-md justify-center">
           <KitForm compact />
         </div>
       </div>
 
       {/* Identity + links */}
-      <div className="container-site relative z-10 grid gap-10 py-14 md:grid-cols-[1.3fr_1fr_1.2fr]">
+      <div className="container-site relative z-10 grid gap-10 py-10 md:grid-cols-[1.3fr_1fr_1.2fr]">
         <div className="max-w-xs">
           <p className="font-display text-lg font-bold text-[var(--ink-strong)]">
             LadyF<span className="text-accent"> AI</span>

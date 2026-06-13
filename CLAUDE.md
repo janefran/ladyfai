@@ -31,3 +31,7 @@ The full spec is in **PRODUCT.md** — read it. Her ecosystem strategy lives in 
 - Copy must never read AI-generated ("Where strategy meets its spark" = the kind of garbage to avoid). Her voice: hard truths, direct address, short punchy sentences, real examples.
 - Design: teal brand (#14BCBA), Bricolage Grotesque headings, Manrope body, canvas mouse trail, Build Gate orbital hero animation. No stock photos, no Inter/Poppins/DM Sans, no generic AI-site patterns.
 - `/lf-studio` admin is hidden — never linked in nav/footer, disallowed in robots.txt.
+
+## Deploy workflow (permanent — never push to live directly)
+
+`main` = the live site (deployed by Vercel). NEVER commit or push directly to `main`. Every change: work on a branch, run `npm run build` locally first, push the branch, open a PR, let Vercel build a preview URL, LadyF reviews the preview in her browser, then merge to deploy. First Vercel deploy needs no env vars; add Supabase + Kit keys in Vercel settings later. NEXT_PUBLIC_DEMO_CONTENT stays in local `.env.local` only (gitignored) so production shows real content.
