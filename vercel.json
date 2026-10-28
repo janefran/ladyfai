@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/about", "destination": "https://ladyfai.com/#about", "permanent": true },
+    { "source": "/(.*)", "destination": "https://ladyfai.com/", "permanent": true }
+  ]
+}
